@@ -16,7 +16,7 @@ the data.
   https://www.nitrc.org/frs/download.php/9504/data_part1.zip
   https://www.nitrc.org/frs/download.php/9505/data_part2.zip
   https://www.nitrc.org/frs/download.php/9506/data_part3.zip
-2. Run parc_main.m to play this demo. 
+2. Run main_parc.m to play this demo. 
 
 Reference:
 Jing Wang, Haixian Wang. A supervoxel-based method for groupwise whole 
