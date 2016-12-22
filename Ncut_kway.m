@@ -116,4 +116,4 @@ for iSub=1:nSub
 end
 
 time=toc/3600;
-fprintf('Time to run K-way clustering: %0.2f hours. \n\n',time);
+fprintf('Time to run K-way clustering: %0.2f hours. \n',time);

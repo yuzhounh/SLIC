@@ -74,7 +74,7 @@ for iSub=1:nSub
     end
 end
 n=size(stat,1);
-fprintf('The number of tasks: %d. \n\n',n);
+fprintf('The number of tasks: %d. \n',n);
 parc_parpool(20);
 parfor i=1:n
     iSub=stat(i,1);
@@ -105,7 +105,7 @@ for iK=1:nK
     end
 end
 n=size(stat,1);
-fprintf('The number of tasks: %d. \n\n',n);
+fprintf('The number of tasks: %d. \n',n);
 parc_parpool(20);
 parfor i=1:n
     iK=stat(i,1);

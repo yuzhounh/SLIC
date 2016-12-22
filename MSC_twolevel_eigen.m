@@ -37,4 +37,4 @@ EDD=EDD(end-nTrivial-cK+1:end-nTrivial);
 
 time=toc/3600;
 save(sprintf('MSC_twolevel_eigen/K%d_part%d_rep%d.mat',cK,iPart,iRep),'EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);

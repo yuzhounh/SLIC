@@ -159,4 +159,4 @@ while rsd>1e-4
 end
 label=label(ind_gray); % vector form
 time=toc/3600;
-fprintf('Time to do clustering by SLIC: %0.2f hours. \n\n',time);
+fprintf('Time to do clustering by SLIC: %0.2f hours. \n',time);

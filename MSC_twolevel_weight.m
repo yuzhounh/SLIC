@@ -50,4 +50,4 @@ W=sparse(W);
 
 time=toc/3600;
 save(sprintf('MSC_twolevel_weight/K%d_part%d_rep%d.mat',cK,iPart,iRep),'W','nEmpty','time','-v7.3');
-fprintf('Time to construct 2-level weight matrix: %0.2f hours. \n\n',time);
+fprintf('Time to construct 2-level weight matrix: %0.2f hours. \n',time);
