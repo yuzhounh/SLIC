@@ -35,7 +35,7 @@ nK=20;
 nRep=2;
 nPart=2;
 
-% spaital discontiguity index
+%% spaital discontiguity index
 parc_parpool(20);
 parfor iK=1:nK
     for iRep=1:nRep
