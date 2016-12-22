@@ -1,4 +1,4 @@
-function mean_eigen
+function mean_eigen(iPart,iRep)
 % Extract features from the mean weight matrix by Ncut.
 % 2016-5-28 17:06:25
 
@@ -20,8 +20,8 @@ function mean_eigen
 
 tic;
 
-load parc_graymatter.mat;
-load mean_weight.mat;
+load('parc_graymatter.mat');
+load(sprintf('mean_weight/part%d_rep%d.mat',iPart,iRep));
 
 K0=1000;
 delta=10; % for redundancy
@@ -36,5 +36,5 @@ EV=EV(:,end-nTrivial-K0+1:end-nTrivial);  % noly keep the nontrivial eigenvector
 EDD=EDD(end-nTrivial-K0+1:end-nTrivial);
 
 time=toc/3600;
-save('mean_eigen.mat','EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);
+save(sprintf('mean_eigen/part%d_rep%d.mat',iPart,iRep),'EV','EDD','nTrivial','time');
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);

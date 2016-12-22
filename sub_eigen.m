@@ -45,4 +45,4 @@ EDD=EDD(end-nTrivial-K0+1:end-nTrivial);
 
 time=toc/3600;
 save(sprintf('sub_eigen/sub%05d.mat',cSub),'EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);

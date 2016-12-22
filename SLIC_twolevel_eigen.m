@@ -1,4 +1,4 @@
-function SLIC_twolevel_eigen(iK)
+function SLIC_twolevel_eigen(iK,iPart,iRep)
 % Extract features from the two-level weight matrix by Ncut.
 % 2016-5-28 16:51:09
 
@@ -23,8 +23,8 @@ tic;
 load sK.mat;
 cK=sK(iK);
 
-load(sprintf('SLIC_twolevel_weight/K%d.mat',cK));
-delta=30; % for redundancy
+load(sprintf('SLIC_twolevel_weight/K%d_part%d_rep%d.mat',cK,iPart,iRep));
+delta=20; % for redundancy
 [EV,EDD]=Ncut_eigen(W,cK+delta);  
 
 nTrivial=sum(EDD<1e-4);  % the number of trivial eigenvalues
@@ -36,5 +36,5 @@ EV=EV(:,end-nTrivial-cK+1:end-nTrivial);  % noly keep the nontrivial eigenvector
 EDD=EDD(end-nTrivial-cK+1:end-nTrivial);
 
 time=toc/3600;
-save(sprintf('SLIC_twolevel_eigen/K%d.mat',cK),'EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);
+save(sprintf('SLIC_twolevel_eigen/K%d_part%d_rep%d.mat',cK,iPart,iRep),'EV','EDD','nTrivial','time');
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);
