@@ -1,4 +1,4 @@
-function MSC_twolevel_eigen(iK,iPart,iRep)
+function MSC_twolevel_eigen(iK)
 % Extract features from the two-level weight matrix by Ncut.
 % 2016-5-28 17:06:25
 
@@ -23,13 +23,18 @@ tic;
 load sK.mat;
 cK=sK(iK);
 
-load(sprintf('MSC_twolevel_weight/K%d_part%d_rep%d.mat',cK,iPart,iRep));
+load(sprintf('MSC_twolevel_weight/K%d.mat',cK));
 delta=10; % for redundancy
 [EV,EDD]=Ncut_eigen(W,cK+delta);  
+
 nTrivial=sum(EDD<1e-4);  % the number of trivial eigenvalues
+if nTrivial>delta
+    error('Please increase the "delta" value and try again.');
+end
+
 EV=EV(:,end-nTrivial-cK+1:end-nTrivial);  % noly keep the nontrivial eigenvectors
 EDD=EDD(end-nTrivial-cK+1:end-nTrivial);
 
 time=toc/3600;
-save(sprintf('MSC_twolevel_eigen/K%d_part%d_rep%d.mat',cK,iPart,iRep),'EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);
+save(sprintf('MSC_twolevel_eigen/K%d.mat',cK),'EV','EDD','nTrivial','time');
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);

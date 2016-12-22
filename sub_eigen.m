@@ -36,9 +36,13 @@ EV=real(EV);
 EDD=real(EDD);
 
 nTrivial=sum(EDD<1e-4);  % the number of trivial eigenvalues
+if nTrivial>delta
+    error('Please increase the "delta" value and try again.');
+end
+
 EV=EV(:,end-nTrivial-K0+1:end-nTrivial);  % noly keep the nontrivial eigenvectors
 EDD=EDD(end-nTrivial-K0+1:end-nTrivial);
 
 time=toc/3600;
 save(sprintf('sub_eigen/sub%05d.mat',cSub),'EV','EDD','nTrivial','time');
-fprintf('Time to calculate eigenvectors: %0.2f hours. \n\n',time);
+fprintf('Time to calculate eigenvectors: %0.2f hours. \n',time);
