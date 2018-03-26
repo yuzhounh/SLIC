@@ -13,9 +13,7 @@ project is also shared on NITRC, https://www.nitrc.org/projects/slic/.
 Usage:
 1. Download the preprocessed fMRI data from NITRC, and then uncompress
 the data. 
-  https://www.nitrc.org/frs/download.php/9504/data_part1.zip
-  https://www.nitrc.org/frs/download.php/9505/data_part2.zip
-  https://www.nitrc.org/frs/download.php/9506/data_part3.zip
+   https://www.nitrc.org/frs/?group_id=1030
 2. Run main_parc.m to play this demo. 
 
 Reference:
