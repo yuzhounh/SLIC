@@ -1,32 +1,49 @@
-SLIC: a whole brain parcellation toolbox
-Copyright (C) 2016 Jing Wang
+# SLIC
 
-See an updated version in: SLIC_2, https://github.com/yuzhounh/SLIC_2
-2018-6-20 15:31:04
+A MATLAB toolbox for groupwise whole-brain parcellation of resting-state fMRI data.
 
-The SLIC toolbox contains five whole brain parcellation approaches that 
-operates on resting-state fMRI data. Three of them are reproduced from the 
-Ncut-based approaches in (Craddock et al., 2012, HBM) and (Shen et al., 
-2013, Neuroimage). The remaining two are the mean SLIC and two-level SLIC 
-approaches, which combine Ncut and SLIC to perform whole brain 
-parcellation. By running this demo, you could reproduce the major results 
-in our paper. See the Readme_plus file for further information. This 
-project is also shared on NITRC, https://www.nitrc.org/projects/slic/. 
+[GPL-3.0 license](LICENSE) · [Technical notes](Readme_plus)
 
-Usage:
-1. Download the preprocessed fMRI data from NITRC, and then uncompress
-the data. 
-   https://www.nitrc.org/frs/?group_id=1030
-2. Run main_parc.m to play this demo. 
+The toolbox includes five methods: MSC mean, MSC two-level, MKSC, SLIC mean, and SLIC two-level. The original documentation identifies [SLIC_2](https://github.com/yuzhounh/SLIC_2) as an updated version.
 
-Reference:
-Jing Wang, Haixian Wang. A supervoxel-based method for groupwise whole 
-brain parcellation with resting-state fMRI data. Frontiers in Human 
-Neuroscience. DOI: 10.3389/fnhum.2016.00659
+## Quick Start
 
-Contact information:
-Jing Wang
-wangjing0@seu.edu.cn
-yuzhounh@163.com
+1. Prepare MATLAB with Parallel Computing Toolbox and the NIfTI tools used by the scripts.
+2. Obtain the preprocessed demo data linked in the [NITRC downloads](https://www.nitrc.org/frs/?group_id=1030), and extract subject images under `data/` using the expected `subNNNNN` naming convention.
+3. Review [Readme_plus](Readme_plus) for the original 40-subject experiment, preprocessing, software versions, and memory requirements. Adjust worker counts in [main_algorithm.m](main_algorithm.m) for your machine.
+4. Run from the repository directory:
 
-2016-12-13 22:06:10
+```matlab
+main_parc
+```
+
+[main_toolbox.m](main_toolbox.m) attempts to download and extract `NIfTI_20140122.zip`. The historical download endpoint and the full experiment have not been revalidated in a current environment.
+
+## Repository Structure
+
+- [main_parc.m](main_parc.m): preparation, parcellation, evaluation, and plotting.
+- [main_subject.m](main_subject.m): discovers subject files under `data/`.
+- [main_algorithm.m](main_algorithm.m): runs the parcellation methods.
+- [main_eval.m](main_eval.m) and [main_plot.m](main_plot.m): evaluation and result plots.
+- [graymatter.nii](graymatter.nii) and [T1_4mm.nii](T1_4mm.nii): image resources.
+- [Readme_plus](Readme_plus): detailed experimental notes.
+
+## Citation
+
+Jing Wang and Haixian Wang. *A supervoxel-based method for groupwise whole brain parcellation with resting-state fMRI data.* Frontiers in Human Neuroscience. [doi:10.3389/fnhum.2016.00659](https://doi.org/10.3389/fnhum.2016.00659).
+
+## Related Projects
+
+- [SLIC_2](https://github.com/yuzhounh/SLIC_2): updated version linked in the original documentation.
+- [SLIC on NITRC](https://www.nitrc.org/projects/slic/): project and data resources.
+
+## License
+
+See the existing [GNU General Public License, version 3](LICENSE). Retain the notices in the source files and in bundled third-party material.
+
+## Contact
+
+Jing Wang · [wangjing0@seu.edu.cn](mailto:wangjing0@seu.edu.cn) · [yuzhounh@163.com](mailto:yuzhounh@163.com)
+
+Copyright (C) 2016 Jing Wang.
+
